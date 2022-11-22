@@ -15,7 +15,5 @@ namespace Database_Access_Layer
         public Task<DataTable> ExecuteProcedureAsync(string storedProcedureName);
         public DataTable ExecuteProcedure(string storedProcedureName, List<DalDbParameter> dbParameters);
         public Task<DataTable> ExecuteProcedureAsync(string storedProcedureName, List<DalDbParameter> dbParameters);
-        public void BackupDatabase(string databaseName, string backupFolderPath);
-        public Task BackupDatabaseAsync(string databaseName, string backupFolderPath);
     }
 }

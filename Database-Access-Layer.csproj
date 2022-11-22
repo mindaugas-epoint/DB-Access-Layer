@@ -5,6 +5,12 @@
     <RootNamespace>Database_Access_Layer</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>DatabaseAccessLayer</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Mindaugas Atkočiūnas</Authors>
+    <Company>ePoint</Company>
+    <PackageDescription>Database Access Layer for MSSQL and MySQL</PackageDescription>
+    <RepositoryUrl>https://github.com/mindaugas-epoint/DB-Access-Layer</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

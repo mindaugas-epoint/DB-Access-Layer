@@ -232,49 +232,5 @@ namespace Database_Access_Layer
                 }
             }
         }
-
-        public void BackupDatabase(string databaseName, string backupFolderPath)
-        {
-            string backupDateTime = DateTime.Now.ToString("yyyyMMddTHHmmss");
-            string backupFilePath = Path.Combine(backupFolderPath, "Backup", $"{databaseName}_{backupDateTime}.sql");
-
-            using (MySqlConnection conn = new MySqlConnection(_ConnectionString))
-            {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    using (MySqlBackup mb = new MySqlBackup(cmd))
-                    {
-                        cmd.Connection = conn;
-                        conn.Open();
-                        mb.ExportInfo.AddCreateDatabase = true;
-
-                        mb.ExportToFile(backupFilePath);
-                        conn.Close();
-                    }
-                }
-            }
-        }
-
-        public async Task BackupDatabaseAsync(string databaseName, string backupFolderPath)
-        {
-            string backupDateTime = DateTime.Now.ToString("yyyyMMddTHHmmss");
-            string backupFilePath = Path.Combine(backupFolderPath, "Backup", $"{databaseName}_{backupDateTime}.sql");
-
-            using (MySqlConnection conn = new MySqlConnection(_ConnectionString))
-            {
-                using (MySqlCommand cmd = new MySqlCommand())
-                {
-                    using (MySqlBackup mb = new MySqlBackup(cmd))
-                    {
-                        cmd.Connection = conn;
-                        conn.Open();
-                        mb.ExportInfo.AddCreateDatabase = true;
-
-                        await Task.Run(() => mb.ExportToFile(backupFilePath));
-                        conn.Close();
-                    }
-                }
-            }
-        }
     }
 }
